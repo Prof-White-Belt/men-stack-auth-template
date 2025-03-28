@@ -21,7 +21,11 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+<<<<<<< HEAD
 app.use(morgan("dev"));
+=======
+app.use(morgan('dev'));
+>>>>>>> 1fcd6c17fbb3f723fc8e14dc197d7f06f2cfe4e3
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
