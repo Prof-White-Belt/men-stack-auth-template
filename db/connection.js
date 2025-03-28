@@ -1,9 +1,14 @@
+// db/connection.js
 import dotenv from "dotenv";
-dotenv.config();  
+dotenv.config(); // 🔥 must be before using process.env
+
 import mongoose from "mongoose";
 
-mongoose.connect(process.env.MONGODB_URI);
+const uri = process.env.MONGO_URI;
+console.log("🔍 MONGO_URI:", uri); // Add this debug line
+
+mongoose.connect(uri);
 
 mongoose.connection.on("connected", () => {
-  console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
+  console.log(`✅ Connected to MongoDB: ${mongoose.connection.name}`);
 });
